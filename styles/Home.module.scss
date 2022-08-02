@@ -3,20 +3,20 @@
 .main3 {
   min-height: 100vh;
   padding: 0rem 0;
-  display        : flex;
+  display: flex;
   justify-content: center;
-  align-content  : center;
-  align-items    : center;
+  align-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
-.main{
+.main {
   background-image: url(/page1.png);
   background-size: cover;
   background-position: center;
 }
 
-.main2{
+.main2 {
   background-image: url(/page2.png);
   background-size: cover;
   background-position: center;
@@ -25,7 +25,7 @@
   align-items: flex-start;
 }
 
-.main3{  
+.main3 {
   /* TODO: Style for Page 3 */
 }
 
@@ -41,49 +41,49 @@
 }
 
 .title {
-    margin     : 0;
-    line-height: 1.15;
-    font-size  : 10em;
-    font-family: 'WindSong', cursive;
-    margin-top: 10rem;
-    color: black;
-  }
-  .bookTitle{
-    color: black;
-    margin     : 0px 0px 25px 0;
-    line-height: 1.15;
-    font-size  : 3rem;
-    font-family: 'WindSong', cursive;
-  }
-  .bookDesc{
-    color: black;
-    font-size  : 2rem;
+  margin: 0;
+  line-height: 1.15;
+  font-size: 10em;
+  font-family: 'WindSong', cursive;
+  margin-top: 10rem;
+  color: black;
+}
+.bookTitle {
+  color: black;
+  margin: 0px 0px 25px 0;
+  line-height: 1.15;
+  font-size: 3rem;
+  font-family: 'WindSong', cursive;
+}
+.bookDesc {
+  color: black;
+  font-size: 2rem;
 }
 
 .logo {
   height: 1em;
   margin-left: 0.5rem;
 }
-.logo span{
+.logo span {
   transform: scale(1);
-  transition: .3s ease-out
+  transition: 0.3s ease-out;
 }
-.logo:hover span{
+.logo:hover span {
   transform: scale(1.3);
 }
 
-.madeWith{
+.madeWith {
   display: flex;
   align-content: center;
-  align-items  : center;
+  align-items: center;
 }
 
-.madeWith .elrondLogo{
+.madeWith .elrondLogo {
   margin: 0px 10px;
   top: 2px;
   position: relative;
   transform: scale(1);
-    transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .madeWith .elrondLogo:hover {
@@ -92,35 +92,33 @@
 
 @media (max-width: 1000px) {
   .title {
-    font-size  : 6em;
+    font-size: 6em;
   }
-  .main2 { 
-  padding : 225px 11vw 0px 22vw;
-}
+  .main2 {
+    padding: 225px 11vw 0px 22vw;
+  }
 }
 @media (max-width: 800px) {
   .title {
-    font-size  : 5em;
+    font-size: 5em;
   }
-   .bookTitle {
-   font-size: 2.5em;
-   margin: 0;
- }
+  .bookTitle {
+    font-size: 2.5em;
+    margin: 0;
+  }
 }
 
 @media (max-width: 600px) {
   .title {
-  font-size  : 4em;
-  } 
+    font-size: 4em;
+  }
   .bookTitle {
-   font-size: 2rem;
- }
- .main2 {
-  padding            : 225px 50px 0 50px;
+    font-size: 2rem;
+  }
+  .main2 {
+    padding: 225px 50px 0 50px;
+  }
 }
-}
-
-
 
 @media (prefers-color-scheme: dark) {
   .card,
