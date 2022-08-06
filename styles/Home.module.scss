@@ -9,12 +9,12 @@
   position: relative;
   color: black;
 
-  span{
+  span {
     z-index: -1;
   }
 }
 
-.introSection{
+.introSection {
   justify-content: flex-start;
   padding-left: 40%;
   padding-top: 5%;
@@ -24,9 +24,10 @@
 
 .rulesSection {
   justify-content: flex-start;
-  padding: 225px 20vw 0px 30vw;
+  padding: 225px 22vw 0px 30vw;
   align-items: flex-start;
-  h1{
+
+  h1 {
     margin-bottom: 0;
   }
 }
@@ -60,7 +61,7 @@
   font-size: 2rem;
 }
 
-.bookDesc{
+.bookDesc {
   font-size: 1.2rem;
 }
 
@@ -79,10 +80,12 @@
 @media (max-width: 1225px) {
   .rulesSection {
     padding: 225px 20vw 0px 28vw;
-    h1{
+
+    h1 {
       font-size: 2.5rem;
     }
-    .bookDesc{
+
+    .bookDesc {
       font-size: 1rem;
     }
   }
@@ -93,21 +96,26 @@
     padding: 225px 15vw 0px 24vw;
   }
 }
+
 @media (max-width: 900px) {
-  .bookDesc{
+  .bookDesc {
     font-size: 1.1rem;
   }
 }
+
 @media (max-width: 800px) {
-  .introSection{
+  .introSection {
     padding-left: 30%;
   }
+
   .title {
     font-size: 5em;
   }
+
   .rulesSection {
     padding: 225px 8vw 0 18vw;
   }
+
   .secondaryTitle {
     font-size: 2.5em;
     margin: 0;
@@ -119,7 +127,7 @@
     font-size: 4em;
   }
 
-  .introDesc{
+  .introDesc {
     font-size: 1.5rem;
   }
 
@@ -136,40 +144,47 @@
   .title {
     font-size: 4em;
   }
+
   .secondaryTitle {
     font-size: 2rem;
   }
+
   .rulesSection {
     padding: 225px 10px 0 50px;
   }
 }
 
 @media (max-width: 550px) {
- .rulesSection{
-  padding: 225px 25px;
- }
-}
-@media (max-width: 500px) {
- .bookDesc{
-  font-size: 1rem;
- }
- .rulesSection{
-  h1{
-    font-size: 1.7rem;
-    text-align: center;
+  .rulesSection {
+    padding: 225px 25px;
   }
- }
 }
+
+@media (max-width: 500px) {
+  .bookDesc {
+    font-size: 1rem;
+  }
+
+  .rulesSection {
+    h1 {
+      font-size: 1.7rem;
+      text-align: center;
+    }
+  }
+}
+
 @media (max-width: 450px) {
-  .introSection{
+  .introSection {
     padding: 50px;
   }
- .bookDesc{
-  font-size: 0.9rem;
- }
+
+  .bookDesc {
+    font-size: 0.9rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
+
   .card,
   .code {
     background: #111;
