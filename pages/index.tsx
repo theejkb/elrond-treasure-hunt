@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <title>Treasure Hunt - Hodl Card</title>
         <meta name="og:title" content="Treasure Hunt" />
         <meta name="og:description" content="Participate now in the treasure hunt event offered by Hodl Card" />
-        <meta property="og:image" content="https://github.com/theejkb/elrond-treasure-hunt/blob/develop/public/website_preview.png"/>
+        <meta property="og:image" content="/website_preview.png"/>
         
       </Head>
 
