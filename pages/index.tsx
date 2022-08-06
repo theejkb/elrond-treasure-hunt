@@ -33,6 +33,7 @@ const Home: NextPage = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
+            priority
           />
         </section>
 
