@@ -16,17 +16,15 @@
   }
 }
 
-.twitterLogo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-.twitterLogo span {
+.twitterLogo svg {
+  height: 100%;
+  width: auto;
   transform: scale(1);
   transition: 0.3s ease-out;
+  fill: red;
 }
 
-.twitterLogo:hover span {
+.twitterLogo:hover svg {
   transform: scale(1.3);
 }
 

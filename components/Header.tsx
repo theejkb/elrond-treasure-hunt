@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from '../styles/Header.module.scss'
+import TwitterLogo from './TwitterLogo'
 
 export default function Header() {
   return (
@@ -10,12 +11,7 @@ export default function Header() {
         rel="noopener noreferrer"
       >
         <span className={styles.twitterLogo}>
-          <Image
-            src="/twitter-logo.webp"
-            alt="Twitter Logo"
-            width={25}
-            height={25}
-          />
+          <TwitterLogo aria-label="twitter account link" />
         </span>
       </a>
       <div className={styles.madeWith}>
