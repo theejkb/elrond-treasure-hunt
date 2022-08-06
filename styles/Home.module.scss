@@ -1,32 +1,22 @@
-.main,
-.main2,
-.main3 {
+.treasureMapSection,
+.rulesSection {
   min-height: 100vh;
-  padding: 0rem 0;
   display: flex;
   justify-content: center;
-  align-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
-.main {
-  background-image: url(/page1.png);
-  background-size: cover;
-  background-position: center;
-}
-
-.main2 {
-  background-image: url(/page2.png);
-  background-size: cover;
-  background-position: center;
+.rulesSection {
   justify-content: flex-start;
   padding: 225px 20vw 0px 30vw;
   align-items: flex-start;
 }
 
-.main3 {
-  /* TODO: Style for Page 3 */
+.book {
+  width: 100%;
+  min-width: 600px;
 }
 
 .footer {
@@ -40,14 +30,18 @@
   justify-content: space-evenly;
 }
 
+.bgImage {
+  z-index: -1;
+}
+
 .title {
   margin: 0;
-  line-height: 1.15;
-  font-size: 10em;
+  font-size: 9em;
   font-family: 'WindSong', cursive;
   margin-top: 10rem;
   color: black;
 }
+
 .bookTitle {
   color: black;
   margin: 0px 0px 25px 0;
@@ -90,17 +84,38 @@
   transform: scale(1.3);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1600px) {
+  .title {
+    font-size: 7.5em;
+  }
+}
+
+@media (max-width: 1300px) {
   .title {
     font-size: 6em;
   }
-  .main2 {
-    padding: 225px 11vw 0px 22vw;
+}
+
+@media (max-width: 1200px) {
+  .rulesSection {
+    padding: 225px 14vw 0px 28vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .rulesSection {
+    padding: 225px 11vw 0px 25vw;
   }
 }
 @media (max-width: 800px) {
   .title {
     font-size: 5em;
+  }
+  .rulesSection {
+    padding: 225px 8vw 0 18vw;
+  }
+  .book {
+    min-width: 450px;
   }
   .bookTitle {
     font-size: 2.5em;
@@ -115,7 +130,7 @@
   .bookTitle {
     font-size: 2rem;
   }
-  .main2 {
+  .rulesSection {
     padding: 225px 50px 0 50px;
   }
 }
