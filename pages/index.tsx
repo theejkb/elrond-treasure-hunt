@@ -20,17 +20,11 @@ const Home: NextPage = () => {
       <Header />
       <main>
         <section className={styles.treasureMapSection}>
-          <h1 className={styles.title}>
-            Elrond <br />
-            Treasure <br />
-            Hunt
-          </h1>
           <a className={stylesButton.btnPrimary} href="#intro">
             Discover
           </a>
           <Image
-            className={styles.bgImage}
-            src="/page1.png"
+            src="/page1_with_title.png"
             alt="treasure map"
             layout="fill"
             objectFit="cover"
@@ -62,9 +56,9 @@ const Home: NextPage = () => {
               </p>
               <p>
                 {
-                  'Put on your armor, sharpen your swords, mount your steeds, and\
+                  "Put on your armor, sharpen your swords, mount your steeds, and\
                 prepare to travel across the world of Elrond. The treasure of 24\
-                awaits the legend&apos;s hero'
+                awaits the legend's hero"
                 }
               </p>
             </div>
@@ -75,7 +69,7 @@ const Home: NextPage = () => {
           <Image
             className={styles.bgImage}
             src="/page_intro.png"
-            alt="book of rules"
+            alt="elrond pirate paper"
             layout="fill"
             objectFit="cover"
             objectPosition="center"
