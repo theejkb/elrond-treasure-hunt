@@ -19,7 +19,11 @@
   width: auto;
   transform: scale(1);
   transition: 0.3s ease-out;
-  fill: red;
+  fill: #00acee;
+
+  @media (min-width: 1200px) {
+    fill: white;
+  }
 
   &:hover {
     transform: scale(1.3);
