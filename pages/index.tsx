@@ -65,7 +65,6 @@ const Home: NextPage = () => {
 
         <section id="rules" className={styles.rulesSection}>
           <div className={styles.book}>
-            <h1 className={styles.secondaryTitle}>Elrond Treasure Hunt</h1>
             <div className={styles.bookDesc}>
               <p>Rules :</p>
               <ul>
