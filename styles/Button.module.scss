@@ -4,35 +4,32 @@
   padding: 10px 20px;
   border-radius: 15px 0px;
   margin-bottom: 20px;
-}
-
-.btnPrimary {
   display: inline-block;
   vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
-}
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
 
-.btnPrimary:before {
-  content: '';
-  position: absolute;
-  border: #000000 solid 5px;
-  border-radius: 15px 0px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-}
+  &:before {
+    content: '';
+    position: absolute;
+    border: #000000 solid 5px;
+    border-radius: 15px 0px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
 
-.btnPrimary:hover:before,
-.btnPrimary:focus:before,
-.btnPrimary:active:before {
-  -webkit-animation-name: hvr-ripple-out;
-  animation-name: hvr-ripple-out;
+  &:hover:before,
+  &:focus:before,
+  &:active:before {
+    -webkit-animation-name: hvr-ripple-out;
+    animation-name: hvr-ripple-out;
+  }
 }
 
 /* Ripple Out */

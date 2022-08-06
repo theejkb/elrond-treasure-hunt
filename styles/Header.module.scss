@@ -8,10 +8,8 @@
   display: flex;
   justify-content: space-evenly;
   z-index: 1;
-}
 
-@media (prefers-color-scheme: dark) {
-  .header {
+  @media (prefers-color-scheme: dark) {
     border-color: #222;
   }
 }
@@ -22,26 +20,26 @@
   transform: scale(1);
   transition: 0.3s ease-out;
   fill: red;
-}
 
-.twitterLogo:hover svg {
-  transform: scale(1.3);
+  &:hover {
+    transform: scale(1.3);
+  }
 }
 
 .madeWith {
   display: flex;
   align-content: center;
   align-items: center;
-}
 
-.madeWith .elrondLogo {
-  margin: 0px 10px;
-  top: 2px;
-  position: relative;
-  transform: scale(1);
-  transition: 0.3s ease-out;
-}
+  .elrondLogo {
+    margin: 0px 10px;
+    top: 2px;
+    position: relative;
+    transform: scale(1);
+    transition: 0.3s ease-out;
 
-.madeWith .elrondLogo:hover {
-  transform: scale(1.3);
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
 }
