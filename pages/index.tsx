@@ -62,9 +62,9 @@ const Home: NextPage = () => {
               </p>
               <p>
                 {
-                  'Put on your armor, sharpen your swords, mount your steeds, and\
+                  "Put on your armor, sharpen your swords, mount your steeds, and\
                 prepare to travel across the world of Elrond. The treasure of 24\
-                awaits the legend&apos;s hero'
+                awaits the legend's hero"
                 }
               </p>
             </div>
