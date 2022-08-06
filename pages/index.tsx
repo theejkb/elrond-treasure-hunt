@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Header from '../components/Header'
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
@@ -13,59 +14,43 @@ const Home: NextPage = () => {
         <meta property="og:image" content="/website_preview.png"/>
         
       </Head>
-
-      <main className={styles.main}>
-        <div className={styles.step1}>
+      <Header />
+      <main>
+        <section className={styles.treasureMapSection}>
+          <Image
+            className={styles.bgImage}
+            src="/page1.png"
+            alt="treasure map"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            priority
+          />
           <h1 className={styles.title}>
             Elrond <br />
-            Treasure <br /> Hunt
+            Treasure <br />
+            Hunt
           </h1>
-        </div>
+        </section>
+
+        <section className={styles.rulesSection}>
+          <Image
+            className={styles.bgImage}
+            src="/page2.png"
+            alt="book of rules"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
+          <div className={styles.book}>
+            <h1 className={styles.bookTitle}>Elrond Treasure Hunt</h1>
+            <div className={styles.bookDesc}>
+              <p>Welcome travellers !</p>
+              <p>Rules :</p>
+            </div>
+          </div>
+        </section>
       </main>
-
-      <main className={styles.main2}>
-        <h1 className={styles.bookTitle}>Elrond Treasure Hunt</h1>
-        <div className={styles.bookDesc}>
-          <p>Welcome travellers !</p>
-          <p>Rules :</p>
-        </div>
-      </main>
-
-      <main className={styles.main3}></main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://twitter.com/HODLcards"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className={styles.logo}>
-            <Image
-              src="/twitter-logo.webp"
-              alt="Twitter Logo"
-              width={25}
-              height={25}
-            />
-          </span>
-        </a>
-        <div className={styles.madeWith}>
-          Made with ❤️ for
-          <a
-            href="https://elrond.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.elrondLogo}
-          >
-            <Image
-              src="/elrond-logo.svg"
-              alt="Elrond Logo"
-              width={20}
-              height={20}
-            />
-          </a>
-          Community
-        </div>
-      </footer>
     </div>
   )
 }
