@@ -28,7 +28,7 @@ const Home: NextPage = () => {
             Discover
           </a>
           <Image
-            src="/page1_with_title.png"
+            src="/bg_treasure_map.webp"
             alt="treasure map"
             layout="fill"
             objectFit="cover"
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
           </a>
           <Image
             className={styles.bgImage}
-            src="/page_intro.png"
+            src="/bg_intro.webp"
             alt="elrond pirate paper"
             layout="fill"
             objectFit="cover"
@@ -129,7 +129,7 @@ const Home: NextPage = () => {
           </div>
           <Image
             className={styles.bgImage}
-            src="/page2.png"
+            src="/bg_book.webp"
             alt="book of rules"
             layout="fill"
             objectFit="cover"
