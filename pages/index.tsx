@@ -10,13 +10,13 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <Head>
         <title>Treasure Hunt - Hodl Card</title>
-        <meta name="og:title" content="Treasure Hunt" />
+        <meta property="og:title" content="Treasure Hunt" />
         <meta
           name="description"
           content="Participate now in the treasure hunt event offered by Hodl Card"
         />
         <meta
-          name="og:description"
+          property="og:description"
           content="Participate now in the treasure hunt event offered by Hodl Card"
         />
         <meta property="og:image" content="/website_preview.png" />
