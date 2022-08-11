@@ -33,6 +33,7 @@ const Home: NextPage = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
+            quality={50}
             priority
           />
         </section>
@@ -77,6 +78,8 @@ const Home: NextPage = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
+            quality={50}
+            priority
           />
         </section>
 
@@ -134,6 +137,8 @@ const Home: NextPage = () => {
             layout="fill"
             objectFit="cover"
             objectPosition="center"
+            quality={50}
+            priority
           />
         </section>
       </main>
