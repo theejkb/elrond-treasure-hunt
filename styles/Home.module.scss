@@ -1,6 +1,7 @@
 .treasureMapSection,
 .introSection,
-.rulesSection {
+.rulesSection,
+.casesSection {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,8 +9,9 @@
   flex-direction: column;
   position: relative;
   color: black;
-
-  span {
+  overflow: hidden;
+  z-index: 1;
+  span:first-of-type {
     z-index: -1;
   }
 }
