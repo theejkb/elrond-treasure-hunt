@@ -1,20 +1,13 @@
-import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { Button, gray, Grid, Input, Modal, Text } from '@nextui-org/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { BaseSyntheticEvent, useEffect, useState } from 'react'
+import { cases } from '../cases'
 import Header from '../components/Header'
 import stylesButton from '../styles/Button.module.scss'
 import styles from '../styles/Home.module.scss'
-
-type Case = {
-  available: boolean
-  project: string
-  link: string
-  encryptedWord: string
-  encryptedWalletWord: string
-  hint?: string
-}
+import { Case } from '../types'
 
 const Home: NextPage = () => {
   const [visible, setVisible] = useState(false)
@@ -25,7 +18,6 @@ const Home: NextPage = () => {
   const closeHandler = () => {
     setVisible(false)
   }
-
 
   function openModal(_currentCase: Case) {
     setIsError(false)
@@ -44,20 +36,6 @@ const Home: NextPage = () => {
       setVisible(false)
     }
   }
-
-  const cases: Case[] = new Array(24)
-    .fill({
-      project: 'Dragons Arena',
-      link: 'https://discord.gg/h6T9vp3J86',
-      encryptedWord: 'Pizza65',
-      encryptedWalletWord: 'camionnette',
-      available: true,
-    } as Case)
-    .map((_case: Case, index) => ({
-      ..._case,
-      project: _case.project + index,
-      encryptedWord: _case.encryptedWord,
-    }))
 
   useEffect(() => {
     setSolvedAnswers(JSON.parse(localStorage.getItem('solved') || '[]'))
@@ -121,7 +99,7 @@ const Home: NextPage = () => {
                 fullWidth
                 label="Word :"
                 size="lg"
-                placeholder="Pizza65"
+                placeholder="zircon87"
                 status={isError ? 'error' : 'default'}
               />
             </Modal.Body>
@@ -242,6 +220,9 @@ const Home: NextPage = () => {
               </ul>
             </div>
           </div>
+          <a className={stylesButton.btnPrimary} href="#cases">
+            Next
+          </a>
           <Image
             className={styles.bgImage}
             src="/bg_book.webp"
@@ -269,35 +250,51 @@ const Home: NextPage = () => {
                 solvedAnswers.findIndex(
                   (answer) => answer === _case.project,
                 ) !== -1
-              const handleClick = !isSolved ? () => openModal(_case) : undefined
+              const isAvailable = new Date() >= _case.availableDate
+              const handleClick =
+                !isSolved && isAvailable ? () => openModal(_case) : undefined
               return (
                 <Grid key={_case.encryptedWord} xs={3} md={2}>
                   <div
                     onClick={handleClick}
                     style={{
-                      cursor: !isSolved ? 'pointer' : 'default',
-                      position: 'relative',
-                      aspectRatio: '1',
-                      height: 'auto',
-                      width: '100%',
+                      ...{
+                        cursor:
+                          !isSolved && isAvailable ? 'pointer' : 'default',
+                        position: 'relative',
+                        aspectRatio: '1',
+                        height: 'auto',
+                        width: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                      ...(isAvailable ? {} : { filter: 'grayscale(1)' }),
                     }}
                   >
-                    {!isSolved ? (
-                      <Image src="/case.png" alt="closed case" layout="fill" />
-                    ) : (
-                      <div
-                        style={{
-                          display: 'flex',
-                          backgroundColor: 'white',
-                          height: '100%',
-                          width: '100%',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Text size={20}>{_case.encryptedWalletWord}</Text>
-                      </div>
-                    )}
+                    {
+                      <>
+                        <Image
+                          src="/case.png"
+                          alt="closed case"
+                          layout="fill"
+                        />
+                        {_case.imgUrl && (
+                          <Image
+                            src={_case.imgUrl}
+                            alt=""
+                            width="100"
+                            height="100"
+                          />
+                        )}
+                        {isAvailable && isSolved && (
+                          <Text size={30} b style={{ color: 'white', WebkitTextStroke: "1px black" }}>
+                            {_case.encryptedWalletWord}
+                          </Text>
+                        )}
+                      </>
+                    }
                   </div>
                 </Grid>
               )
