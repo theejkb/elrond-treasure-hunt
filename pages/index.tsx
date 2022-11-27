@@ -1,9 +1,9 @@
-import { Button, gray, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { compareSync } from 'bcryptjs'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import React, { BaseSyntheticEvent, useEffect, useState } from 'react'
-import { cases } from '../cases'
+import { BaseSyntheticEvent, useEffect, useState } from 'react'
 import Header from '../components/Header'
 import stylesButton from '../styles/Button.module.scss'
 import styles from '../styles/Home.module.scss'
@@ -12,6 +12,7 @@ import { Case } from '../types'
 const Home: NextPage = () => {
   const [visible, setVisible] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [cases, setCases] = useState<Case[]>([])
   const [currentCase, setCurrentCase] = useState<Case>()
   const [solvedAnswers, setSolvedAnswers] = useState<string[]>([])
 
@@ -28,10 +29,10 @@ const Home: NextPage = () => {
   function verifWord(event: BaseSyntheticEvent) {
     event.preventDefault()
     const inputWord = event.target[0].value
-    const isRightAnswer = inputWord === currentCase?.encryptedWord
+    const isRightAnswer = compareSync(inputWord, currentCase!.encryptedWord)
     setIsError(!isRightAnswer)
     if (isRightAnswer) {
-      solvedAnswers.push(currentCase!.project)
+      solvedAnswers.push(inputWord)
       localStorage.setItem('solved', JSON.stringify(solvedAnswers))
       setVisible(false)
     }
@@ -39,6 +40,32 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     setSolvedAnswers(JSON.parse(localStorage.getItem('solved') || '[]'))
+  }, [])
+
+  useEffect(() => {
+    async function fetchCases(): Promise<void> {
+      const response = await fetch('/api/cases')
+      const data: Case[] = await response.json()
+      const tmp = new Array<Case>(24)
+      data.forEach((c: Case, i: number) => {
+        tmp[i] = {
+          ...c,
+          availableDate: new Date(c.availableDate),
+        } as Case
+      })
+      for (let i = data.length; i < tmp.length; i++) {
+        tmp[i] = {
+          project: 'fill',
+          link: 'fill',
+          encryptedWord: 'fill',
+          encryptedWalletWord: 'fill',
+          availableDate: new Date(2099, 1),
+        } as Case
+      }
+      console.log(tmp)
+      setCases(tmp)
+    }
+    fetchCases().catch(console.error)
   }, [])
 
   return (
@@ -69,7 +96,7 @@ const Home: NextPage = () => {
               <Text id="modal-title" size={18}>
                 {`DAY ${
                   cases.findIndex(
-                    (_case) => _case.project === currentCase?.project,
+                    (_case) => _case?.project === currentCase?.project,
                   ) + 1
                 } `}
                 <Text b size={18}>
@@ -99,7 +126,7 @@ const Home: NextPage = () => {
                 fullWidth
                 label="Word :"
                 size="lg"
-                placeholder="zircon87"
+                placeholder="Zircon87"
                 status={isError ? 'error' : 'default'}
               />
             </Modal.Body>
@@ -187,10 +214,10 @@ const Home: NextPage = () => {
                 <li>
                   {
                     ' Visit the project (could be Twitter, Discord, Telegram, ...)\
-                  and try to find a secret password. Format : gems12.'
+                  and try to find a secret password. Format : Gems12.'
                   }
                   <br />
-                  {'For example : zircon87'}
+                  {'For example : Zircon87'}
                 </li>
                 <li>
                   {
@@ -246,10 +273,10 @@ const Home: NextPage = () => {
           />
           <Grid.Container gap={2} style={{ maxWidth: '1200px' }}>
             {cases.map((_case) => {
-              const isSolved =
-                solvedAnswers.findIndex(
-                  (answer) => answer === _case.project,
-                ) !== -1
+              const answer = solvedAnswers.find((answer) =>
+                compareSync(answer, _case.encryptedWord),
+              )
+              const isSolved = answer !== undefined
               const isAvailable = new Date() >= _case.availableDate
               const handleClick =
                 !isSolved && isAvailable ? () => openModal(_case) : undefined
@@ -269,28 +296,40 @@ const Home: NextPage = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         flexDirection: 'column',
+                        backgroundColor: 'black',
+                        zIndex: 0,
                       },
                       ...(isAvailable ? {} : { filter: 'grayscale(1)' }),
                     }}
                   >
                     {
                       <>
-                        <Image
-                          src="/case.png"
-                          alt="closed case"
-                          layout="fill"
-                        />
-                        {_case.imgUrl && (
+                        {_case.imgUrl && isAvailable ? (
                           <Image
-                            src={_case.imgUrl}
+                            src={`/project_logos/${_case.imgUrl}`}
                             alt=""
                             width="100"
                             height="100"
+                            layout="fill"
+                            style={isSolved ? { opacity: 0.5 } : {}}
+                          />
+                        ) : (
+                          <Image
+                            src="/case.png"
+                            alt="closed case"
+                            layout="fill"
                           />
                         )}
                         {isAvailable && isSolved && (
-                          <Text size={30} b style={{ color: 'white', WebkitTextStroke: "1px black" }}>
-                            {_case.encryptedWalletWord}
+                          <Text
+                            size={30}
+                            b
+                            style={{
+                              color: 'white',
+                              WebkitTextStroke: '1px black',
+                            }}
+                          >
+                            {answer}
                           </Text>
                         )}
                       </>
