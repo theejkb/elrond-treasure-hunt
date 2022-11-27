@@ -3,6 +3,15 @@ import { Case } from './types'
 // 11 est l'index du mois => Décembre
 export const cases: Case[] = [
   {
+    project: 'ElrondHunt', // 1
+    link: ' https://twitter.com/ElrondHunt',
+    imgUrl: 'elrond_hunt.png',
+    encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOo5YxHWoW1V7EmYWxkal/imPCjmOHeTi', // simple
+    encryptedWalletWord: 'fill',
+    availableDate: new Date(2022, 10, 1),
+    hint: 'The word is simple',
+  },
+  {
     project: 'Dragons Arena', // 1
     link: 'https://discord.gg/h6T9vp3J86',
     imgUrl: 'dragons_arena.png',

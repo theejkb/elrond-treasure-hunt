@@ -209,32 +209,22 @@ const Home: NextPage = () => {
                     ' Every day, a new box will open revealing a project, URL and a\
                   hint.'
                   }
-                </li>
-                <li>
                   {
                     ' Visit the project (could be Twitter, Discord, Telegram, ...)\
                   and try to find a secret password. Format : Gems12.'
                   }
-                  <br />
-                  {'For example : Zircon87'}
                 </li>
-                <li>
-                  {
-                    "If it's correst, you'll receive one of the 24 keys needed to open the chest."
-                  }
-                </li>
+                <li></li>
+                <li>{"If it's correct, note it."}</li>
                 <li>
                   {
                     ' Come back to elrondtreasurehunt.com and fill the case with\
                   this code.'
                   }
                   <br />
-                  {
-                    "If it's correct, you'll receive one of the 24 keys\
-                  needed to open the chest."
-                  }
                 </li>
                 <li>{'Write it down somewhere and wait for the new box.'}</li>
+                <li>{'First arrived, first served.'}</li>
               </ul>
               <p>Warning : </p>
               <ul>
@@ -327,7 +317,7 @@ const Home: NextPage = () => {
                             b
                             style={{
                               color: 'white',
-                              WebkitTextStroke: '1px black',
+                              WebkitTextStroke: '0.5px black',
                             }}
                           >
                             {answer}
