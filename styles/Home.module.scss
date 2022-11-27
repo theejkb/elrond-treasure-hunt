@@ -11,6 +11,7 @@
   color: black;
   overflow: hidden;
   z-index: 1;
+
   span:first-of-type {
     z-index: -1;
   }
@@ -30,10 +31,15 @@
 
 .rulesSection {
   justify-content: flex-start;
-  padding: 225px 22vw 0px 30vw;
+  padding: 200px 22vw 0px 30vw;
 
   h1 {
     margin-bottom: 0;
+  }
+
+  .bookDesc ul li,
+  .bookDesc p {
+    font-size: 1vw;
   }
 }
 
@@ -47,39 +53,49 @@
   line-height: 1.15;
   font-size: 3rem;
   font-family: 'WindSong', cursive;
+
 }
 
-.introDesc {
+.introDesc p {
   color: black;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
-.bookDesc {
-  font-size: 1.2rem;
+div.all-boxes {
+  max-width: 1000px !important;
 }
+
 
 @media (max-width: 1225px) {
   .rulesSection {
-    padding: 225px 20vw 0px 28vw;
+    padding: 200px 20vw 0px 28vw;
 
     h1 {
       font-size: 2.5rem;
     }
 
-    .bookDesc {
-      font-size: 1rem;
+    .bookDesc p,
+    .bookDesc ul li {
+      font-size: 0.9rem !important;
     }
   }
+
+  .all-boxes {
+    max-width: 1000px;
+  }
+
 }
 
 @media (max-width: 1000px) {
   .rulesSection {
-    padding: 225px 15vw 0px 24vw;
+    padding: 200px 15vw 0px 24vw;
   }
 }
 
 @media (max-width: 900px) {
-  .bookDesc {
+
+  .bookDesc p,
+  .bookDesc ul li {
     font-size: 1.1rem;
   }
 }
@@ -90,7 +106,7 @@
   }
 
   .rulesSection {
-    padding: 225px 8vw 0 18vw;
+    padding: 210px 8vw 0 18vw;
   }
 
   .secondaryTitle {
@@ -109,7 +125,13 @@
   }
 
   .rulesSection {
-    padding: 225px 20px 0 100px;
+    padding: 200px 20px 0 100px;
+  }
+
+  .all-boxes .boxe {
+    width: 49% !important;
+    flex-basis: 49% !important;
+    max-width: 49% !important;
   }
 }
 
@@ -130,14 +152,16 @@
 }
 
 @media (max-width: 500px) {
-  .bookDesc {
+
+  .bookDesc p,
+  .bookDesc ul li {
     font-size: 1rem;
   }
 
   .rulesSection {
     h1 {
       font-size: 1.7rem;
-      text-align: center;
+      text-align: center !important;
     }
   }
 }
@@ -147,12 +171,18 @@
     padding: 50px;
   }
 
-  .bookDesc {
+  h1.secondaryTitle {
+    text-align: center;
+  }
+
+  .bookDesc p,
+  .bookDesc ul li {
     font-size: 0.9rem;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+
   .card,
   .code {
     background: #111;

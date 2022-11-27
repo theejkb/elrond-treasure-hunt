@@ -62,7 +62,6 @@ const Home: NextPage = () => {
           availableDate: new Date(2099, 1),
         } as Case
       }
-      console.log(tmp)
       setCases(tmp)
     }
     fetchCases().catch(console.error)
@@ -221,6 +220,11 @@ const Home: NextPage = () => {
                 </li>
                 <li>
                   {
+                    "If it's correst, you'll receive one of the 24 keys needed to open the chest."
+                  }
+                </li>
+                <li>
+                  {
                     ' Come back to elrondtreasurehunt.com and fill the case with\
                   this code.'
                   }
@@ -234,16 +238,9 @@ const Home: NextPage = () => {
               </ul>
               <p>Warning : </p>
               <ul>
-                <li>
-                  {
-                    "Don't try to get answers from projects teams. Your only contact is Elrond Treasure Hunt Twitter account"
-                  }
-                </li>
-                <li>
-                  {
-                    "Don't try to cheat. The only way to obtain keys is to find passwords."
-                  }
-                </li>
+                <li>{"Don't try to get answers from projects teams."}</li>
+                <li>{"Don't try to cheat."}</li>
+                <li>{'The only way to obtain keys is to find passwords.'}</li>
               </ul>
             </div>
           </div>
@@ -271,7 +268,11 @@ const Home: NextPage = () => {
             objectPosition="center"
             priority
           />
-          <Grid.Container gap={2} style={{ maxWidth: '1200px' }}>
+          <Grid.Container
+            className="all-boxes"
+            gap={2}
+            style={{ maxWidth: '1000px', marginTop: '50px' }}
+          >
             {cases.map((_case) => {
               const answer = solvedAnswers.find((answer) =>
                 compareSync(answer, _case.encryptedWord),
@@ -281,7 +282,7 @@ const Home: NextPage = () => {
               const handleClick =
                 !isSolved && isAvailable ? () => openModal(_case) : undefined
               return (
-                <Grid key={_case.encryptedWord} xs={3} md={2}>
+                <Grid className="boxe" key={_case.encryptedWord} xs={4} md={2}>
                   <div
                     onClick={handleClick}
                     style={{
