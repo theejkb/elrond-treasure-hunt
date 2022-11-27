@@ -1,130 +1,189 @@
-.main,
-.main2,
-.main3 {
+.treasureMapSection,
+.introSection,
+.rulesSection,
+.casesSection {
   min-height: 100vh;
-  padding: 0rem 0;
   display: flex;
   justify-content: center;
-  align-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.main {
-  background-image: url(/page1.png);
-  background-size: cover;
-  background-position: center;
-}
-
-.main2 {
-  background-image: url(/page2.png);
-  background-size: cover;
-  background-position: center;
-  justify-content: flex-start;
-  padding: 225px 20vw 0px 30vw;
-  align-items: flex-start;
-}
-
-.main3 {
-  /* TODO: Style for Page 3 */
-}
-
-.footer {
-  position: fixed;
-  padding: 10px;
-  top: 0;
-  left: 0;
-  background-color: rgba(17, 17, 17, 0.384);
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 10em;
-  font-family: 'WindSong', cursive;
-  margin-top: 10rem;
+  position: relative;
   color: black;
+  overflow: hidden;
+  z-index: 1;
+
+  span:first-of-type {
+    z-index: -1;
+  }
 }
-.bookTitle {
+
+.treasureMapSection {
+  justify-content: flex-end;
+}
+
+.introSection {
+  justify-content: flex-start;
+  padding-left: 40%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-right: 10%;
+}
+
+.rulesSection {
+  justify-content: flex-start;
+  padding: 200px 22vw 0px 30vw;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .bookDesc ul li,
+  .bookDesc p {
+    font-size: 1vw;
+  }
+}
+
+.book {
+  width: 100%;
+}
+
+.secondaryTitle {
   color: black;
   margin: 0px 0px 25px 0;
   line-height: 1.15;
   font-size: 3rem;
   font-family: 'WindSong', cursive;
+
 }
-.bookDesc {
+
+.introDesc p {
   color: black;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-.logo span {
-  transform: scale(1);
-  transition: 0.3s ease-out;
-}
-.logo:hover span {
-  transform: scale(1.3);
+div.all-boxes {
+  max-width: 1000px !important;
 }
 
-.madeWith {
-  display: flex;
-  align-content: center;
-  align-items: center;
-}
 
-.madeWith .elrondLogo {
-  margin: 0px 10px;
-  top: 2px;
-  position: relative;
-  transform: scale(1);
-  transition: 0.3s ease-out;
-}
+@media (max-width: 1225px) {
+  .rulesSection {
+    padding: 200px 20vw 0px 28vw;
 
-.madeWith .elrondLogo:hover {
-  transform: scale(1.3);
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .bookDesc p,
+    .bookDesc ul li {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  .all-boxes {
+    max-width: 1000px;
+  }
+
 }
 
 @media (max-width: 1000px) {
-  .title {
-    font-size: 6em;
-  }
-  .main2 {
-    padding: 225px 11vw 0px 22vw;
+  .rulesSection {
+    padding: 200px 15vw 0px 24vw;
   }
 }
-@media (max-width: 800px) {
-  .title {
-    font-size: 5em;
+
+@media (max-width: 900px) {
+
+  .bookDesc p,
+  .bookDesc ul li {
+    font-size: 1.1rem;
   }
-  .bookTitle {
+}
+
+@media (max-width: 800px) {
+  .introSection {
+    padding-left: 30%;
+  }
+
+  .rulesSection {
+    padding: 210px 8vw 0 18vw;
+  }
+
+  .secondaryTitle {
     font-size: 2.5em;
     margin: 0;
   }
 }
 
-@media (max-width: 600px) {
-  .title {
-    font-size: 4em;
+@media (max-width: 700px) {
+  .introDesc {
+    font-size: 1.5rem;
   }
-  .bookTitle {
+
+  .secondaryTitle {
+    font-size: 2.25em;
+  }
+
+  .rulesSection {
+    padding: 200px 20px 0 100px;
+  }
+
+  .all-boxes .boxe {
+    width: 49% !important;
+    flex-basis: 49% !important;
+    max-width: 49% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .secondaryTitle {
     font-size: 2rem;
   }
-  .main2 {
-    padding: 225px 50px 0 50px;
+
+  .rulesSection {
+    padding: 225px 10px 0 50px;
+  }
+}
+
+@media (max-width: 550px) {
+  .rulesSection {
+    padding: 225px 25px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .bookDesc p,
+  .bookDesc ul li {
+    font-size: 1rem;
+  }
+
+  .rulesSection {
+    h1 {
+      font-size: 1.7rem;
+      text-align: center !important;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .introSection {
+    padding: 50px;
+  }
+
+  h1.secondaryTitle {
+    text-align: center;
+  }
+
+  .bookDesc p,
+  .bookDesc ul li {
+    font-size: 0.9rem;
   }
 }
 
 @media (prefers-color-scheme: dark) {
+
   .card,
-  .footer {
-    border-color: #222;
-  }
   .code {
     background: #111;
   }
