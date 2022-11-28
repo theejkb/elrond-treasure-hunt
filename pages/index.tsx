@@ -1,4 +1,4 @@
-import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { Button, green, Grid, Input, Modal, Text } from '@nextui-org/react'
 import { compareSync } from 'bcryptjs'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import stylesButton from '../styles/Button.module.scss'
 import styles from '../styles/Home.module.scss'
 import { Case } from '../types'
+import { AiFillCheckCircle } from 'react-icons/ai'
 
 const Home: NextPage = () => {
   const [visible, setVisible] = useState(false)
@@ -312,16 +313,15 @@ const Home: NextPage = () => {
                           />
                         )}
                         {isAvailable && isSolved && (
-                          <Text
-                            size={30}
-                            b
+                          <AiFillCheckCircle
                             style={{
-                              color: 'white',
-                              WebkitTextStroke: '0.5px black',
+                              position: 'absolute',
+                              color: 'green',
+                              right: '20px',
+                              bottom: '20px',
                             }}
-                          >
-                            {answer}
-                          </Text>
+                            size={'10%'}
+                          ></AiFillCheckCircle>
                         )}
                       </>
                     }
