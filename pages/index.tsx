@@ -29,7 +29,7 @@ const Home: NextPage = () => {
 
   function verifWord(event: BaseSyntheticEvent) {
     event.preventDefault()
-    const inputWord = event.target[0].value
+    const inputWord = (event.target[0].value as string).toLocaleLowerCase()
     const isRightAnswer = compareSync(inputWord, currentCase!.encryptedWord)
     setIsError(!isRightAnswer)
     if (isRightAnswer) {
@@ -126,7 +126,7 @@ const Home: NextPage = () => {
                 fullWidth
                 label="Word :"
                 size="lg"
-                placeholder="Zircon87"
+                placeholder="zircon87"
                 status={isError ? 'error' : 'default'}
               />
             </Modal.Body>
@@ -212,14 +212,14 @@ const Home: NextPage = () => {
                   }
                   {
                     ' Visit the project (could be Twitter, Discord, Telegram, ...)\
-                  and try to find a secret password. Format : Gems12.'
+                  and try to find a secret password. Format : gems12.'
                   }
                 </li>
                 <li></li>
                 <li>{"If it's correct, note it."}</li>
                 <li>
                   {
-                    ' Come back to elrondtreasurehunt.com and fill the case with\
+                    ' Come back to https://elrond-treasure-hunt.vercel.app/ and fill the case with\
                   this code.'
                   }
                   <br />
@@ -269,7 +269,7 @@ const Home: NextPage = () => {
                 compareSync(answer, _case.encryptedWord),
               )
               const isSolved = answer !== undefined
-              const isAvailable = new Date() >= _case.availableDate
+              const isAvailable = new Date(2022, 11, 12) >= _case.availableDate
               const handleClick =
                 !isSolved && isAvailable ? () => openModal(_case) : undefined
               return (
@@ -317,11 +317,11 @@ const Home: NextPage = () => {
                             style={{
                               position: 'absolute',
                               color: 'green',
-                              right: '20px',
-                              bottom: '20px',
+                              top: '25%',
+                              left: '25%',
                             }}
-                            size={'10%'}
-                          ></AiFillCheckCircle>
+                            size={'50%'}
+                          />
                         )}
                       </>
                     }
