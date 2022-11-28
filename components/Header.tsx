@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <a
-        href="https://twitter.com/HODLcards"
+        href="https://twitter.com/ElrondHunt"
         target="_blank"
         rel="noopener noreferrer"
       >
