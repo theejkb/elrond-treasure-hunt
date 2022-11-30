@@ -65,6 +65,13 @@ div.all-boxes {
   max-width: 1000px !important;
 }
 
+.icon-check {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: green;
+}
+
 
 @media (max-width: 1225px) {
   .rulesSection {
