@@ -1,14 +1,17 @@
-import { Button, green, Grid, Input, Modal, Text } from '@nextui-org/react'
+import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
 import { compareSync } from 'bcryptjs'
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Image from 'next/image'
 import { BaseSyntheticEvent, useEffect, useState } from 'react'
+import { AiFillCheckCircle } from 'react-icons/ai'
 import Header from '../components/Header'
+import IntroSection from '../components/IntroSection'
+import Metadata from '../components/Metadata'
+import RulesSection from '../components/RulesSection'
+import TreasureMapSection from '../components/TreasureMapSection'
 import stylesButton from '../styles/Button.module.scss'
 import styles from '../styles/Home.module.scss'
 import { Case } from '../types'
-import { AiFillCheckCircle } from 'react-icons/ai'
 
 const Home: NextPage = () => {
   const [visible, setVisible] = useState(false)
@@ -70,19 +73,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Treasure Hunt - Hodl Card</title>
-        <meta property="og:title" content="Treasure Hunt" />
-        <meta
-          name="description"
-          content="Participate now in the treasure hunt event offered by Hodl Card"
-        />
-        <meta
-          property="og:description"
-          content="Participate now in the treasure hunt event offered by Hodl Card"
-        />
-        <meta property="og:image" content="/website_preview.png" />
-      </Head>
+      <Metadata />
       <Header />
       <main>
         <Modal
@@ -126,7 +117,7 @@ const Home: NextPage = () => {
                 fullWidth
                 label="Word :"
                 size="lg"
-                placeholder="zircon87"
+                placeholder="Zircon87"
                 status={isError ? 'error' : 'default'}
               />
             </Modal.Body>
@@ -140,118 +131,15 @@ const Home: NextPage = () => {
             </Modal.Footer>
           </form>
         </Modal>
-        <section className={styles.treasureMapSection}>
-          <a className={stylesButton.btnPrimary} href="#intro">
-            Discover
-          </a>
-          <Image
-            src="/bg_treasure_map.webp"
-            alt="treasure map"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            quality={50}
-            priority
-          />
-        </section>
+        <TreasureMapSection
+          sectionStyles={styles}
+          buttonStyles={stylesButton}
+        />
+        <IntroSection sectionStyles={styles} buttonStyles={stylesButton} />
+        <RulesSection sectionStyles={styles} buttonStyles={stylesButton} />
 
-        <section id="intro" className={styles.introSection}>
-          <div className={styles.book}>
-            <h1 className={styles.secondaryTitle}>Elrond Treasure Hunt</h1>
-            <div className={styles.introDesc}>
-              <p>
-                {
-                  'At the dawn of the Age of Elrond, all factions are preparing for\
-                the fulfillment of the prophecy that will raise the throne of\
-                the Maiars. Meanwhile, a group has gathered in the shadows to\
-                seal a secret pact.'
-                }
-              </p>
-              <p>
-                {
-                  'They entrusted their most precious items to a chest, sealed with\
-                the strongest chains and the most powerful magic ever created.\
-                According to the legend, only the mighty hero who successfully\
-                explore the 24 lands of Elrond will be able to open this sacred\
-                chest!'
-                }
-              </p>
-              <p>
-                {
-                  "Put on your armor, sharpen your swords, mount your steeds, and\
-                prepare to travel across the world of Elrond. The treasure of 24\
-                awaits the legend's hero"
-                }
-              </p>
-            </div>
-          </div>
-          <a className={stylesButton.btnPrimary} href="#rules">
-            Next
-          </a>
-          <Image
-            className={styles.bgImage}
-            src="/bg_intro.webp"
-            alt="elrond pirate paper"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            quality={50}
-            priority
-          />
-        </section>
-
-        <section id="rules" className={styles.rulesSection}>
-          <div className={styles.book}>
-            <div className={styles.bookDesc}>
-              <p>Rules :</p>
-              <ul>
-                <li>
-                  {
-                    ' Every day, a new box will open revealing a project, URL and a\
-                  hint.'
-                  }
-                  {
-                    ' Visit the project (could be Twitter, Discord, Telegram, ...)\
-                  and try to find a secret password. Format : gems12.'
-                  }
-                </li>
-                <li></li>
-                <li>{"If it's correct, note it."}</li>
-                <li>
-                  {
-                    ' Come back to https://elrond-treasure-hunt.vercel.app/ and fill the case with\
-                  this code.'
-                  }
-                  <br />
-                </li>
-                <li>{'Write it down somewhere and wait for the new box.'}</li>
-                <li>{'First arrived, first served.'}</li>
-              </ul>
-              <p>Warning : </p>
-              <ul>
-                <li>{"Don't try to get answers from projects teams."}</li>
-                <li>{"Don't try to cheat."}</li>
-                <li>{'The only way to obtain keys is to find passwords.'}</li>
-              </ul>
-            </div>
-          </div>
-          <a className={stylesButton.btnPrimary} href="#cases">
-            Next
-          </a>
-          <Image
-            className={styles.bgImage}
-            src="/bg_book.webp"
-            alt="book of rules"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            quality={50}
-            priority
-          />
-        </section>
         <section id="cases" className={styles.casesSection}>
           <Image
-            className={styles.bgImage}
             src="/bg_fond_cases.webp"
             alt=""
             layout="fill"
@@ -269,7 +157,7 @@ const Home: NextPage = () => {
                 compareSync(answer, _case.encryptedWord),
               )
               const isSolved = answer !== undefined
-              const isAvailable = new Date(2022, 11, 12) >= _case.availableDate
+              const isAvailable = new Date() >= _case.availableDate
               const handleClick =
                 !isSolved && isAvailable ? () => openModal(_case) : undefined
               return (

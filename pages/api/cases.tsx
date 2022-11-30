@@ -20,5 +20,5 @@ export default function handler(
 
   res
     .status(200)
-    .json(cases.filter((_case) => _case.availableDate <= new Date(2022, 11, 12)))
+    .json(cases.filter((_case) => _case.availableDate <= new Date()))
 }
