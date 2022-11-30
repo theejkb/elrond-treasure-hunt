@@ -9,7 +9,7 @@ export const cases: Case[] = [
   //   encryptedWord:
   //     '$2a$10$uPgzV15gmqBDw5.uOIdWpOo5YxHWoW1V7EmYWxkal/imPCjmOHeTi', // simple
   //   encryptedWalletWord: 'fill',
-  //   availableDate: new Date(2022, 10, 1),
+  //   availableDate: new Date(2022, 10, 1, 23),
   //   hint: 'The word is simple',
   // },
   {
@@ -18,7 +18,7 @@ export const cases: Case[] = [
     imgUrl: 'dragons_arena.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO7nd7ufVQZUjipnHaiucgrN3R7WfMTW6', // agate48
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 1),
+    availableDate: new Date(2022, 10, 30, 23),
     hint: '🎵',
   },
   {
@@ -27,7 +27,7 @@ export const cases: Case[] = [
     imgUrl: 'battle_of_nodes.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOknRJJDgXzanAVVHBd5fvvmCQPBslsfG', // aragonite05
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 2),
+    availableDate: new Date(2022, 11, 1, 23),
     hint: 'A new player has entered the game',
   },
   {
@@ -36,7 +36,7 @@ export const cases: Case[] = [
     imgUrl: 'vswatch.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOKmmGKHka4nrDcpX3BkoEgYPpQC0cOha', // spinel02
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 3),
+    availableDate: new Date(2022, 11, 2, 23),
     hint: '3 letters in the dark',
   },
   {
@@ -45,7 +45,7 @@ export const cases: Case[] = [
     imgUrl: 'demiourgos.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOAC1xmncvYRY2iDV3MwAfp2NJIKjkf6.', // labradorite12
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 4),
+    availableDate: new Date(2022, 11, 3, 23),
     hint: 'Where’s is the Lost Ark ? ',
   },
   {
@@ -54,7 +54,7 @@ export const cases: Case[] = [
     imgUrl: 'angry_penguins.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO9svazzsv801sB8d4SFKQ6I5Z41sgvm.', // aventurine22
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 5),
+    availableDate: new Date(2022, 11, 4, 23),
     hint: 'Ask a question after 7pm',
   },
   {
@@ -63,7 +63,7 @@ export const cases: Case[] = [
     imgUrl: 'calileo.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOLIInSK7r0NJXcnVVIS8drnM2mylup6i', // amethyst09
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 6),
+    availableDate: new Date(2022, 11, 5, 23),
     hint: 'Touch the invisible',
   },
   {
@@ -72,7 +72,7 @@ export const cases: Case[] = [
     imgUrl: 'elrond_mafia.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOR1hVjDGW5ChWAAM19E8TXKTBWih8mwm', // topaz58
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 7),
+    availableDate: new Date(2022, 11, 6, 23),
     hint: 'Ask yourself the right questions. The mafia does not forgive',
   },
   {
@@ -81,7 +81,7 @@ export const cases: Case[] = [
     imgUrl: 'crypto_pittz.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOxGoCEGAHtFzuMJVsnfWtE9eBhh14yHG', // emerald20
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 8),
+    availableDate: new Date(2022, 11, 7, 23),
     hint: 'We need to talk',
   },
   {
@@ -90,7 +90,7 @@ export const cases: Case[] = [
     imgUrl: 'founding_8.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOseg.jNcH7KN1sU.bZsCwgiq.IiAIpE2', // carnelian11
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 9),
+    availableDate: new Date(2022, 11, 8, 23),
     hint: '1Beauty 3lies in the 5eyes of the beholder',
   },
   {
@@ -99,7 +99,7 @@ export const cases: Case[] = [
     imgUrl: 'gaupa_labs.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOyVF3EY6phmp9sc5dQjYvwh/PU0foVbK', // tanzanite03
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 10),
+    availableDate: new Date(2022, 11, 9, 23),
     hint: 'The X marks the spot',
   },
   {
@@ -108,7 +108,7 @@ export const cases: Case[] = [
     imgUrl: 'hodlcards.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOIqf4tqIsQkrOw7x/OlBO5SP3Z9FNcQ.', // gold12
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 11),
+    availableDate: new Date(2022, 11, 10, 23),
     hint: 'Get a tattoo and cash-in !',
   },
   {
@@ -117,7 +117,7 @@ export const cases: Case[] = [
     imgUrl: 'jcorp.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOvF7aXTGBTIAVpRSfOD5AyEe0.1.3m2.', // kyanite99
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 12),
+    availableDate: new Date(2022, 11, 11, 23),
     hint: 'What’s next ?',
   },
   {
@@ -126,7 +126,7 @@ export const cases: Case[] = [
     imgUrl: 'monkeys_supremacy.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO2mkloK/vn9n0E8BgZ8V8zvr/uyvXt3C', // citrine03
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 13),
+    availableDate: new Date(2022, 11, 12, 23),
     hint: 'Find peace',
   },
   {
@@ -135,7 +135,7 @@ export const cases: Case[] = [
     imgUrl: 'plata.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO/uP6gdYceQ.ZGzb57JWAYWfFkXLznjC', // coral49
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 14),
+    availableDate: new Date(2022, 11, 13, 23),
     hint: '220202VONMP803',
   },
   {
@@ -144,7 +144,7 @@ export const cases: Case[] = [
     imgUrl: 'toc.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO50N/hBDZbptaN1dBV3oWZxd4p/oTMYq', // amber18
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 15),
+    availableDate: new Date(2022, 11, 14, 23),
     hint: 'Just digg '
   },
   {
@@ -153,7 +153,7 @@ export const cases: Case[] = [
     imgUrl: 'lucky1000.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOHwr4FCprF81YXGyX2zFPFJ06SCduyM6', // onyx11
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 16),
+    availableDate: new Date(2022, 11, 15, 23),
     hint: 'The easier ? the better'
   },
   {
@@ -162,7 +162,7 @@ export const cases: Case[] = [
     imgUrl: 'wwwatch.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOkjA5J.9YM3AbXIHg2TjyZghYH0EhfH.', // pearl26
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 17),
+    availableDate: new Date(2022, 11, 16, 23),
     hint: 'Visible to all, but hidden in the shadows'
   },
   {
@@ -171,7 +171,7 @@ export const cases: Case[] = [
     imgUrl: 'frame_it.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOY/cY0YtbAWpO6DJKZpjgKWvjiewNd7m', // turquoise21
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 18),
+    availableDate: new Date(2022, 11, 17, 23),
     hint: 'What is behind FrameIt ?'
   },
   {
@@ -180,7 +180,7 @@ export const cases: Case[] = [
     imgUrl: 'qowatt.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO03SpjyleN9NecSypZ0fR3QRMeT/XaZy', // ruby08
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 19),
+    availableDate: new Date(2022, 11, 18, 23),
     hint: 'Ka xi’ik teech utsil 13.0.9.2.18'
   },
   {
@@ -189,7 +189,7 @@ export const cases: Case[] = [
     imgUrl: 'dinovox.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOrOZIK/lnRL.OfRS9VDJQEcJ/HzyRwca', // jade94
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 20),
+    availableDate: new Date(2022, 11, 19, 23),
     hint: '2597c0180fa7'
   },
   {
@@ -198,7 +198,7 @@ export const cases: Case[] = [
     imgUrl: 'drifters.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpO2cZb15gPn4s1CQvXh.2T0BBtp79fYEy', // garnet24
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 21),
+    availableDate: new Date(2022, 11, 20, 23),
     hint: 'This one kills !'
   },
   {
@@ -207,7 +207,7 @@ export const cases: Case[] = [
     imgUrl: 'fightoons.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOLSdOYdNcG.Wt.BtiiiDp.eTa8ve8DOi', // tourmaline93
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 22),
+    availableDate: new Date(2022, 11, 21, 23),
     hint: 'GM from warriors'
   },
   {
@@ -216,7 +216,7 @@ export const cases: Case[] = [
     imgUrl: 'globees.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOXCJ.4.V/gHiAjV32JN3/u936OB3p28K', // diamond83
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 23),
+    availableDate: new Date(2022, 11, 22, 23),
     hint: '−−−−− ···−− −··−· −−−−− −−−−· −··−· ··−−−−−−−− ··−−− ··−−−'
   },
   {
@@ -225,7 +225,7 @@ export const cases: Case[] = [
     imgUrl: 'multiversxfrance.png',
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOoxwJikxFK4Pn13D0XJMkBA5T4OOw.RS', // opal14
     encryptedWalletWord: 'fill',
-    availableDate: new Date(2022, 11, 24),
+    availableDate: new Date(2022, 11, 23, 23),
     hint: 'መዘኻኸሪ'
   },
 ]
