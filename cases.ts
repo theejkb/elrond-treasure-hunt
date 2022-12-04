@@ -46,7 +46,7 @@ export const cases: Case[] = [
     encryptedWord: '$2a$10$uPgzV15gmqBDw5.uOIdWpOAC1xmncvYRY2iDV3MwAfp2NJIKjkf6.', // labradorite12
     encryptedWalletWord: 'fill',
     availableDate: new Date(2022, 11, 3, 23),
-    hint: 'Where’s is the Lost Ark ? ',
+    hint: 'Where is the Lost Ark ? ',
   },
   {
     project: 'Angry Penguins', // 5
