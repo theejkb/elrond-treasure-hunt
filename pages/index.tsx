@@ -1,5 +1,6 @@
 import { Button, Grid, Input, Modal, Text } from '@nextui-org/react'
 import { compareSync } from 'bcryptjs'
+import ms from 'ms'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import { BaseSyntheticEvent, useEffect, useState } from 'react'
@@ -13,19 +14,22 @@ import stylesButton from '../styles/Button.module.scss'
 import styles from '../styles/Home.module.scss'
 import { Case } from '../types'
 
+const BLOCK_DURATION = 300 * 1000
+
 const Home: NextPage = () => {
   const [visible, setVisible] = useState(false)
-  const [isError, setIsError] = useState(false)
+  const [error, setError] = useState<string | undefined>()
   const [cases, setCases] = useState<Case[]>([])
   const [currentCase, setCurrentCase] = useState<Case>()
   const [solvedAnswers, setSolvedAnswers] = useState<string[]>([])
+  const [lastInputDate, setLastInputDate] = useState<Date | null>(null)
 
   const closeHandler = () => {
     setVisible(false)
   }
 
   function openModal(_currentCase: Case) {
-    setIsError(false)
+    setError(undefined)
     setCurrentCase(_currentCase)
     setVisible(true)
   }
@@ -34,16 +38,47 @@ const Home: NextPage = () => {
     event.preventDefault()
     const inputWord = (event.target[0].value as string).toLocaleLowerCase()
     const isRightAnswer = compareSync(inputWord, currentCase!.encryptedWord)
-    setIsError(!isRightAnswer)
-    if (isRightAnswer) {
+    const currentDate = new Date()
+    const isBlocked =
+      (lastInputDate &&
+        currentDate.getTime() - lastInputDate.getTime() <= BLOCK_DURATION) ??
+      false
+    if (!isBlocked && inputWord === "") {
+      setError("Field required")
+    }
+    else if (isBlocked || !isRightAnswer || (!lastInputDate && !isRightAnswer)) {
+      const waitingTime =
+        BLOCK_DURATION -
+        (lastInputDate && isBlocked
+          ? currentDate.getTime() - lastInputDate.getTime()
+          : 0)
+      setError(
+        `Please wait ${ms(waitingTime,
+          {
+            long: true,
+          },
+        )} to continue`,
+      )
+      if (!lastInputDate || !isBlocked) {
+        setLastInputDate(currentDate)
+        localStorage.setItem('last-input-date', currentDate.toJSON())
+      }
+    } else {
       solvedAnswers.push(inputWord)
       localStorage.setItem('solved', JSON.stringify(solvedAnswers))
       setVisible(false)
+      setError(undefined)
+      setLastInputDate(currentDate)
+      localStorage.setItem('last-input-date', currentDate.toJSON())
     }
   }
 
   useEffect(() => {
     setSolvedAnswers(JSON.parse(localStorage.getItem('solved') || '[]'))
+    const lastInput = localStorage.getItem('last-input-date')
+    setLastInputDate(
+      lastInput && Date.parse(lastInput) ? new Date(lastInput) : null,
+    )
   }, [])
 
   useEffect(() => {
@@ -61,7 +96,7 @@ const Home: NextPage = () => {
         tmp[i] = {
           project: 'fill',
           link: 'fill',
-          encryptedWord: 'fill',
+          encryptedWord: `fill-${i}`,
           encryptedWalletWord: 'fill',
           availableDate: new Date(2099, 1),
         } as Case
@@ -95,7 +130,9 @@ const Home: NextPage = () => {
                 </Text>
               </Text>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body style={{
+              overflowY: "unset"
+            }}>
               <Text size={18} css={{ marginBottom: 0 }}>
                 Link :
                 <a
@@ -118,7 +155,10 @@ const Home: NextPage = () => {
                 label="Word :"
                 size="lg"
                 placeholder="Zircon87"
-                status={isError ? 'error' : 'default'}
+                status={error ? 'error' : 'default'}
+                color={error ? 'error' : 'default'}
+                helperColor={error ? 'error' : 'default'}
+                helperText={error}
               />
             </Modal.Body>
             <Modal.Footer>
@@ -188,8 +228,6 @@ const Home: NextPage = () => {
                           <Image
                             src={`/project_logos/${_case.imgUrl}`}
                             alt=""
-                            width="100"
-                            height="100"
                             layout="fill"
                             style={isSolved ? { opacity: 0.5 } : {}}
                           />
