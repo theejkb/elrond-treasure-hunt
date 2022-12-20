@@ -1,4 +1,5 @@
 export type Case = {
+  id: number
   availableDate: Date
   project: string
   link: string

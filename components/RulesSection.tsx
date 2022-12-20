@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import { BaseSectionProps } from '../types'
 
-interface RulesSectionSectionProps extends BaseSectionProps {}
+interface RulesSectionProps extends BaseSectionProps {}
 
 export default function RulesSection({
   sectionStyles,
   buttonStyles,
-}: RulesSectionSectionProps) {
+}: RulesSectionProps) {
   return (
     <section id="rules" className={sectionStyles.rulesSection}>
       <div className={sectionStyles.book}>
