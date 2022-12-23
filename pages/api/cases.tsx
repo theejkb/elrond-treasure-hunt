@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { cases } from '../../cases'
 import { Case } from '../../types'
-import bcrypt from 'bcryptjs'
+// import bcrypt from 'bcryptjs'
 
 export default function handler(
   _req: NextApiRequest,

@@ -1,9 +1,10 @@
 import { Grid } from '@nextui-org/react'
 import { compareSync } from 'bcryptjs'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillCheckCircle } from 'react-icons/ai'
 import { Case } from '../types'
+import EndModal from './EndModal'
 
 interface CasesGridProps {
   cases: Case[]
@@ -12,6 +13,7 @@ interface CasesGridProps {
 }
 
 function CasesGrid({ cases, solvedAnswers, openModal }: CasesGridProps) {
+  const [form, setForm] = useState<string | undefined>(undefined)
   const solvedAnswersList: string[] = JSON.parse(solvedAnswers)
   solvedAnswersList.forEach((answer) => {
     if (!answer.startsWith('$2a$10')) {
@@ -25,6 +27,27 @@ function CasesGrid({ cases, solvedAnswers, openModal }: CasesGridProps) {
       }
     }
   })
+
+  useEffect(() => {
+    async function fetchForm(): Promise<void> {
+      const response = await fetch('/api/final_form', {
+        method: 'POST',
+        body: JSON.stringify(solvedAnswersList),
+      })
+      if (response.ok) {
+        const data: string = await response.json()
+        setForm(data)
+      }
+    }
+    if (solvedAnswersList.length === 24) {
+      fetchForm().catch(console.error)
+    }
+  }, [solvedAnswersList])
+
+  if (form) {
+    return <EndModal isOpen formLink={form} />
+  }
+
   return (
     <Grid.Container
       className="all-boxes"
